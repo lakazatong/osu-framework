@@ -239,10 +239,10 @@ namespace osu.Framework.Platform.SDL2
                 visible = value;
                 ScheduleCommand(() =>
                 {
-                    if (value)
-                        SDL_ShowWindow(SDLWindowHandle);
-                    else
-                        SDL_HideWindow(SDLWindowHandle);
+                    // if (value)
+                    //     SDL_ShowWindow(SDLWindowHandle);
+                    // else
+                    //     SDL_HideWindow(SDLWindowHandle);
                 });
             }
         }

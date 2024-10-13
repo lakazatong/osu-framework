@@ -34,7 +34,7 @@ namespace osu.Framework.Platform.Windows
 
         public override bool CapsLockEnabled => Console.CapsLock;
 
-        internal WindowsGameHost(string gameName, HostOptions? options)
+        public WindowsGameHost(string gameName, HostOptions? options)
             : base(gameName, options)
         {
             try
