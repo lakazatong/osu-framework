@@ -17,6 +17,7 @@ using SixLabors.ImageSharp.PixelFormats;
 using Image = SixLabors.ImageSharp.Image;
 using Point = System.Drawing.Point;
 using static SDL2.SDL;
+using osu.Framework.BellaFiora;
 
 namespace osu.Framework.Platform.SDL2
 {
@@ -376,6 +377,7 @@ namespace osu.Framework.Platform.SDL2
 
         public void OnDraw()
         {
+            Triggers.OnDrawTrigger();
             if (!firstDraw)
                 return;
 
