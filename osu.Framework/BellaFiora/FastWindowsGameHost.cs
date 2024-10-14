@@ -18,9 +18,11 @@ namespace osu.Framework.BellaFiora
     [SupportedOSPlatform("windows")]
     public class FastWindowsGameHost : WindowsGameHost
     {
-        public FastWindowsGameHost(string gameName, HostOptions hostOptions)
+        private readonly bool noInputHandlers;
+        public FastWindowsGameHost(string gameName, HostOptions hostOptions, bool noInputHandlers = false)
             : base(gameName, hostOptions)
         {
+            this.noInputHandlers = noInputHandlers;
         }
         public const double CLOCK_RATE = 1000.0 / 30;
 
@@ -88,7 +90,8 @@ namespace osu.Framework.BellaFiora
             base.UpdateFrame();
         }
 
-        protected override IEnumerable<InputHandler> CreateAvailableInputHandlers() => Array.Empty<InputHandler>();
+        protected override IEnumerable<InputHandler> CreateAvailableInputHandlers() =>
+            noInputHandlers ? Array.Empty<InputHandler>() : base.CreateAvailableInputHandlers();
 
         private class FastClock : IClock
         {
