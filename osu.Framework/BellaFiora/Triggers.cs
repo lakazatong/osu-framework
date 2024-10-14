@@ -1,6 +1,6 @@
 #pragma warning disable IDE0073
 
-using osu.Framework.Logging;
+// using osu.Framework.Logging;
 
 namespace osu.Framework.BellaFiora
 {
@@ -8,7 +8,7 @@ namespace osu.Framework.BellaFiora
     {
         public static void OnDrawTrigger()
         {
-            Logger.Log("OnDraw called");
+            // Logger.Log("OnDraw called");
         }
     }
 }
