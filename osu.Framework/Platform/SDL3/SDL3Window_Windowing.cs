@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
+using osu.Framework.BellaFiora;
 using osu.Framework.Bindables;
 using osu.Framework.Configuration;
 using osu.Framework.Logging;
@@ -246,7 +247,7 @@ namespace osu.Framework.Platform.SDL3
                 visible = value;
                 ScheduleCommand(() =>
                 {
-                    if (value)
+                    if (value && ShowWindow.Value)
                         SDL_ShowWindow(SDLWindowHandle);
                     else
                         SDL_HideWindow(SDLWindowHandle);

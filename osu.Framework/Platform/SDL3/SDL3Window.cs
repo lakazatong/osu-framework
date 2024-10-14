@@ -19,6 +19,7 @@ using SixLabors.ImageSharp.PixelFormats;
 using Image = SixLabors.ImageSharp.Image;
 using Point = System.Drawing.Point;
 using static SDL.SDL3;
+using osu.Framework.BellaFiora;
 
 namespace osu.Framework.Platform.SDL3
 {
@@ -387,7 +388,7 @@ namespace osu.Framework.Platform.SDL3
 
         public void Show() => ScheduleCommand(() =>
         {
-            SDL_ShowWindow(SDLWindowHandle);
+            if (ShowWindow.Value) SDL_ShowWindow(SDLWindowHandle);
         });
 
         public void Flash(bool flashUntilFocused = false) => ScheduleCommand(() =>
