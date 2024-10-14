@@ -5,6 +5,7 @@
 
 using System;
 using System.Diagnostics;
+using osu.Framework.BellaFiora;
 using osu.Framework.Platform;
 using osu.Framework.Platform.Linux;
 using osu.Framework.Platform.MacOS;
@@ -20,7 +21,7 @@ namespace osu.Framework
             {
                 case RuntimeInfo.Platform.Windows:
                     Debug.Assert(OperatingSystem.IsWindows());
-                    return new WindowsGameHost(gameName, hostOptions);
+                    return Realtime.Value ? new WindowsGameHost(gameName, hostOptions) : new FastWindowsGameHost(gameName, hostOptions);
 
                 case RuntimeInfo.Platform.Linux:
                     return new LinuxGameHost(gameName, hostOptions);
