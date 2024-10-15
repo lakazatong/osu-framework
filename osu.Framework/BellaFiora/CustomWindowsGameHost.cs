@@ -38,7 +38,7 @@ namespace osu.Framework.BellaFiora
 
         public override void OpenUrlExternally(string url) => Logger.Log($"Application has requested URL \"{url}\" to be opened.");
 
-        protected override Clipboard CreateClipboard() => new HeadlessClipboard();
+        // protected override Clipboard CreateClipboard() => new HeadlessClipboard();
 
         protected override void SetupConfig(IDictionary<FrameworkSetting, object> defaultOverrides)
         {
