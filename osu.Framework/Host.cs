@@ -21,7 +21,7 @@ namespace osu.Framework
             {
                 case RuntimeInfo.Platform.Windows:
                     Debug.Assert(OperatingSystem.IsWindows());
-                    return Realtime.Value ? new WindowsGameHost(gameName, hostOptions) : new FastWindowsGameHost(gameName, hostOptions);
+                    return Globals.USE_FAST_GAME_HOST ? new FastWindowsGameHost(gameName, hostOptions) : new WindowsGameHost(gameName, hostOptions);
 
                 case RuntimeInfo.Platform.Linux:
                     return new LinuxGameHost(gameName, hostOptions);

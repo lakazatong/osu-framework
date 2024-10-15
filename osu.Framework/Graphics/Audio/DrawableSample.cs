@@ -3,6 +3,7 @@
 
 using osu.Framework.Audio.Mixing;
 using osu.Framework.Audio.Sample;
+using osu.Framework.BellaFiora;
 using osu.Framework.Bindables;
 using osu.Framework.Lists;
 

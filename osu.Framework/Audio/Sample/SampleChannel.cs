@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using osu.Framework.Audio.Mixing;
 using osu.Framework.Statistics;
 using osu.Framework.Audio.Track;
+using osu.Framework.BellaFiora;
 
 namespace osu.Framework.Audio.Sample
 {
@@ -25,7 +26,7 @@ namespace osu.Framework.Audio.Sample
             ObjectDisposedException.ThrowIf(IsDisposed, this);
 
             Played = true;
-            OnPlay?.Invoke(this);
+            if (!Globals.MUTE_EFFECTS) OnPlay?.Invoke(this);
         }
 
         public virtual void Stop()

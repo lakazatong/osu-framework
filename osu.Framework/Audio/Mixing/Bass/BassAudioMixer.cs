@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using ManagedBass;
 using ManagedBass.Mix;
+using osu.Framework.BellaFiora;
 using osu.Framework.Extensions.EnumExtensions;
 using osu.Framework.Statistics;
 
@@ -322,7 +323,7 @@ namespace osu.Framework.Audio.Mixing.Bass
             if (manager?.GlobalMixerHandle.Value != null)
                 BassMix.MixerAddChannel(manager.GlobalMixerHandle.Value.Value, Handle, BassFlags.MixerChanBuffer | BassFlags.MixerChanNoRampin);
 
-            ManagedBass.Bass.ChannelPlay(Handle);
+            if (!Globals.MUTE_MUSIC) ManagedBass.Bass.ChannelPlay(Handle);
         }
 
         /// <summary>

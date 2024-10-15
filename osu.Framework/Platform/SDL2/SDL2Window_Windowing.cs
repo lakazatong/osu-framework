@@ -240,7 +240,7 @@ namespace osu.Framework.Platform.SDL2
                 visible = value;
                 ScheduleCommand(() =>
                 {
-                    if (value && ShowWindow.Value)
+                    if (value && Globals.SHOW_WINDOW)
                         SDL_ShowWindow(SDLWindowHandle);
                     else
                         SDL_HideWindow(SDLWindowHandle);
