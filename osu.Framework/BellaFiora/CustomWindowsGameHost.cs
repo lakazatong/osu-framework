@@ -20,7 +20,6 @@ namespace osu.Framework.BellaFiora
     {
         public CustomWindowsGameHost(string gameName, HostOptions hostOptions) : base(gameName, hostOptions) { }
 
-        private readonly bool realtime = true;
         private IFrameBasedClock? customClock;
 
         protected override IFrameBasedClock SceneGraphClock => customClock ?? base.SceneGraphClock;
@@ -60,19 +59,19 @@ namespace osu.Framework.BellaFiora
             // This limiting is mostly to reduce CPU overhead.
             // MaximumDrawHz = 60;
 
-            if (!realtime)
-            {
-                customClock = new FramedClock(new FastClock(Globals.UPDATE_THREADS_HZ, Threads.ToArray()));
+            // if (!realtime)
+            // {
+            customClock = new FramedClock(new FastClock(Globals.UPDATE_THREADS_HZ, Threads.ToArray()));
 
                 // time is incremented per frame, rather than based on the real-world time.
                 // therefore our goal is to run frames as fast as possible.
                 // MaximumUpdateHz = MaximumInactiveHz = 0;
-            }
-            else
-            {
+            // }
+            // else
+            // {
                 // in realtime runs, set a sane upper limit to avoid cpu overhead from spinning.
                 // MaximumUpdateHz = MaximumInactiveHz = 1000;
-            }
+            // }
 
             base.SetupForRun();
         }
