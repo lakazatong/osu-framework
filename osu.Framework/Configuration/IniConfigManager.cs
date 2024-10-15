@@ -36,7 +36,7 @@ namespace osu.Framework.Configuration
                 {
                     w.Write(config);
                 }
-                PerformLoad();
+                Load();
             }
             catch
             {
