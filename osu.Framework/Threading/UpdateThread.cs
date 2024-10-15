@@ -23,12 +23,12 @@ namespace osu.Framework.Threading
         public new double ActiveHz
         {
             get => base.ActiveHz;
-            set => base.ActiveHz = Globals.UPDATE_THREAD_HZ;
+            set => base.ActiveHz = Globals.UPDATE_THREADS_HZ;
         }
         public new double InactiveHz
         {
             get => base.InactiveHz;
-            set => base.InactiveHz = Globals.UPDATE_THREAD_HZ;
+            set => base.InactiveHz = Globals.UPDATE_THREADS_HZ;
         }
         protected sealed override void OnInitialize()
         {

@@ -709,8 +709,8 @@ namespace osu.Framework.Platform
 
                 threadRunner = CreateThreadRunner(InputThread = new InputThread()
                 {
-                    ActiveHz = Globals.INPUT_THREAD_HZ,
-                    InactiveHz = Globals.INPUT_THREAD_HZ,
+                    ActiveHz = Globals.INPUT_THREADS_HZ,
+                    InactiveHz = Globals.INPUT_THREADS_HZ,
                 });
 
                 AppDomain.CurrentDomain.UnhandledException += unhandledExceptionHandler;
@@ -720,15 +720,15 @@ namespace osu.Framework.Platform
 
                 RegisterThread(AudioThread = new AudioThread()
                 {
-                    ActiveHz = Globals.AUDIO_THREAD_HZ,
-                    InactiveHz = Globals.AUDIO_THREAD_HZ,
+                    ActiveHz = Globals.AUDIO_THREADS_HZ,
+                    InactiveHz = Globals.AUDIO_THREADS_HZ,
                 });
 
                 RegisterThread(UpdateThread = new UpdateThread(UpdateFrame, DrawThread)
                 {
                     Monitor = { HandleGC = true },
-                    ActiveHz = Globals.UPDATE_THREAD_HZ,
-                    InactiveHz = Globals.UPDATE_THREAD_HZ,
+                    ActiveHz = Globals.UPDATE_THREADS_HZ,
+                    InactiveHz = Globals.UPDATE_THREADS_HZ,
                 });
 
                 Trace.Listeners.Clear();
@@ -767,8 +767,8 @@ namespace osu.Framework.Platform
 
                 RegisterThread(DrawThread = new DrawThread(DrawFrame, this)
                 {
-                    ActiveHz = Globals.DRAW_THREAD_HZ,
-                    InactiveHz = Globals.DRAW_THREAD_HZ,
+                    ActiveHz = Globals.DRAW_THREADS_HZ,
+                    InactiveHz = Globals.DRAW_THREADS_HZ,
                 });
 
                 Dependencies.CacheAs(readableKeyCombinationProvider = CreateReadableKeyCombinationProvider());

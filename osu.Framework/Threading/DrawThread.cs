@@ -26,13 +26,13 @@ namespace osu.Framework.Threading
         public new double ActiveHz
         {
             get => base.ActiveHz;
-            set => base.ActiveHz = Globals.DRAW_THREAD_HZ;
+            set => base.ActiveHz = Globals.DRAW_THREADS_HZ;
         }
 
         public new double InactiveHz
         {
             get => base.InactiveHz;
-            set => base.InactiveHz = Globals.DRAW_THREAD_HZ;
+            set => base.InactiveHz = Globals.DRAW_THREADS_HZ;
         }
 
         public override bool IsCurrent => ThreadSafety.IsDrawThread;

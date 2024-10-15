@@ -18,13 +18,13 @@ namespace osu.Framework.Threading
         public new double ActiveHz
         {
             get => base.ActiveHz;
-            set => base.ActiveHz = Globals.INPUT_THREAD_HZ;
+            set => base.ActiveHz = Globals.INPUT_THREADS_HZ;
         }
 
         public new double InactiveHz
         {
             get => base.InactiveHz;
-            set => base.InactiveHz = Globals.INPUT_THREAD_HZ;
+            set => base.InactiveHz = Globals.INPUT_THREADS_HZ;
         }
 
         internal override IEnumerable<StatisticsCounterType> StatisticsCounters => new[]

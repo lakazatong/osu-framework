@@ -29,13 +29,13 @@ namespace osu.Framework.Threading
         public new double ActiveHz
         {
             get => base.ActiveHz;
-            set => base.ActiveHz = Globals.AUDIO_THREAD_HZ;
+            set => base.ActiveHz = Globals.AUDIO_THREADS_HZ;
         }
 
         public new double InactiveHz
         {
             get => base.InactiveHz;
-            set => base.InactiveHz = Globals.AUDIO_THREAD_HZ;
+            set => base.InactiveHz = Globals.AUDIO_THREADS_HZ;
         }
 
         public override bool IsCurrent => ThreadSafety.IsAudioThread;
