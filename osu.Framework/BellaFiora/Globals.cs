@@ -7,8 +7,10 @@ namespace osu.Framework.BellaFiora
         public static readonly bool SHOW_WINDOW = true;
         public static readonly bool USE_FAST_GAME_HOST = true;
         public static readonly bool NO_INPUT_HANDLERS = false;
-        public static readonly double CLOCK_RATE = 1f; // updates per second, does not take effect in gameplay
-        public static readonly double FPS = 5f;
+        public static readonly double DRAW_THREAD_HZ = 144.03f;
+        public static readonly double UPDATE_THREAD_HZ = 10f; // does not take effect in gameplay
+        public static readonly double INPUT_THREAD_HZ = 60f;
+        public static readonly double AUDIO_THREAD_HZ = 60f;
         public static readonly bool MUTE_MUSIC = false;
         public static readonly bool MUTE_EFFECTS = false;
         public static readonly uint MUSIC_PLAYBACK_RATE = 1;

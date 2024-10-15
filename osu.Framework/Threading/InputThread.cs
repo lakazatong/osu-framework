@@ -4,6 +4,7 @@
 using osu.Framework.Statistics;
 using System.Collections.Generic;
 using osu.Framework.Development;
+using osu.Framework.BellaFiora;
 
 namespace osu.Framework.Threading
 {
@@ -12,6 +13,18 @@ namespace osu.Framework.Threading
         public InputThread()
             : base(name: "Input")
         {
+        }
+
+        public new double ActiveHz
+        {
+            get => base.ActiveHz;
+            set => base.ActiveHz = Globals.INPUT_THREAD_HZ;
+        }
+
+        public new double InactiveHz
+        {
+            get => base.InactiveHz;
+            set => base.InactiveHz = Globals.INPUT_THREAD_HZ;
         }
 
         internal override IEnumerable<StatisticsCounterType> StatisticsCounters => new[]

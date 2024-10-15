@@ -62,7 +62,7 @@ namespace osu.Framework.BellaFiora
 
             if (!realtime)
             {
-                customClock = new FramedClock(new FastClock(Globals.CLOCK_RATE, Threads.ToArray()));
+                customClock = new FramedClock(new FastClock(Globals.UPDATE_THREAD_HZ, Threads.ToArray()));
 
                 // time is incremented per frame, rather than based on the real-world time.
                 // therefore our goal is to run frames as fast as possible.

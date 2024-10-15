@@ -13,6 +13,7 @@ using osu.Framework.Audio;
 using osu.Framework.Bindables;
 using osu.Framework.Development;
 using osu.Framework.Platform.Linux.Native;
+using osu.Framework.BellaFiora;
 
 namespace osu.Framework.Threading
 {
@@ -23,6 +24,18 @@ namespace osu.Framework.Threading
         {
             OnNewFrame += onNewFrame;
             PreloadBass();
+        }
+
+        public new double ActiveHz
+        {
+            get => base.ActiveHz;
+            set => base.ActiveHz = Globals.AUDIO_THREAD_HZ;
+        }
+
+        public new double InactiveHz
+        {
+            get => base.InactiveHz;
+            set => base.InactiveHz = Globals.AUDIO_THREAD_HZ;
         }
 
         public override bool IsCurrent => ThreadSafety.IsAudioThread;
