@@ -324,6 +324,7 @@ namespace osu.Framework.Audio.Mixing.Bass
                 BassMix.MixerAddChannel(manager.GlobalMixerHandle.Value.Value, Handle, BassFlags.MixerChanBuffer | BassFlags.MixerChanNoRampin);
 
             if (Globals.MUTE_MUSIC) ManagedBass.Bass.ChannelSetAttribute(Handle, ChannelAttribute.Volume, 0);
+            ManagedBass.Bass.ChannelSetAttribute(Handle, ChannelAttribute.Frequency, frequency * Globals.MUSIC_PLAYBACK_RATE);
             ManagedBass.Bass.ChannelPlay(Handle);
         }
 

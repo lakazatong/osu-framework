@@ -30,6 +30,7 @@ using osu.Framework.Graphics.Primitives;
 using osu.Framework.Layout;
 using osu.Framework.Logging;
 using osu.Framework.Utils;
+using osu.Framework.BellaFiora;
 
 namespace osu.Framework.Graphics.Containers
 {
@@ -258,7 +259,7 @@ namespace osu.Framework.Graphics.Containers
             // for their correct alive state in the case LifetimeStart is set to a definite value.
             foreach (var c in internalChildren)
             {
-                cancellation?.ThrowIfCancellationRequested();
+                if (Globals.THROW_IF_CANCELLED) cancellation?.ThrowIfCancellationRequested();
                 loadChild(c);
             }
         }

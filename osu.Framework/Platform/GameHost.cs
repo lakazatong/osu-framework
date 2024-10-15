@@ -47,6 +47,7 @@ using osu.Framework.IO.Stores;
 using osu.Framework.Localisation;
 using Rectangle = System.Drawing.Rectangle;
 using Size = System.Drawing.Size;
+using osu.Framework.BellaFiora;
 
 namespace osu.Framework.Platform
 {
@@ -718,6 +719,8 @@ namespace osu.Framework.Platform
                 RegisterThread(UpdateThread = new UpdateThread(UpdateFrame, DrawThread)
                 {
                     Monitor = { HandleGC = true },
+                    ActiveHz = Globals.CLOCK_RATE,
+                    InactiveHz = Globals.CLOCK_RATE,
                 });
 
                 Trace.Listeners.Clear();
@@ -756,8 +759,8 @@ namespace osu.Framework.Platform
 
                 RegisterThread(DrawThread = new DrawThread(DrawFrame, this)
                 {
-                    ActiveHz = MaximumDrawHz,
-                    InactiveHz = MaximumInactiveHz,
+                    ActiveHz = Globals.FPS,
+                    InactiveHz = Globals.FPS,
                 });
 
                 Dependencies.CacheAs(readableKeyCombinationProvider = CreateReadableKeyCombinationProvider());

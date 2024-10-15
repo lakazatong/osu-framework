@@ -7,6 +7,9 @@ using System.Collections.Generic;
 using osu.Framework.Development;
 using osu.Framework.Platform;
 using osuTK;
+using osu.Framework.BellaFiora;
+using osu.Framework.Timing;
+// using OpenTabletDriver.Native.Linux.Timers;
 
 namespace osu.Framework.Threading
 {
@@ -18,6 +21,18 @@ namespace osu.Framework.Threading
             : base(onNewFrame, "Draw")
         {
             this.host = host;
+        }
+
+        public new double ActiveHz
+        {
+            get => base.ActiveHz;
+            set => base.ActiveHz = Globals.FPS;
+        }
+
+        public new double InactiveHz
+        {
+            get => base.InactiveHz;
+            set => base.InactiveHz = Globals.FPS;
         }
 
         public override bool IsCurrent => ThreadSafety.IsDrawThread;

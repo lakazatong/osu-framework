@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using osu.Framework.Development;
 using osu.Framework.Platform;
+using osu.Framework.BellaFiora;
+// using osu.Framework.Timing;
 
 namespace osu.Framework.Threading
 {
@@ -18,7 +20,16 @@ namespace osu.Framework.Threading
         {
             this.drawThread = drawThread;
         }
-
+        public new double ActiveHz
+        {
+            get => base.ActiveHz;
+            set => base.ActiveHz = Globals.CLOCK_RATE;
+        }
+        public new double InactiveHz
+        {
+            get => base.InactiveHz;
+            set => base.InactiveHz = Globals.CLOCK_RATE;
+        }
         protected sealed override void OnInitialize()
         {
             if (ThreadSafety.ExecutionMode != ExecutionMode.SingleThread)
