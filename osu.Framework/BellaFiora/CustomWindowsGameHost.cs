@@ -16,9 +16,9 @@ using osu.Framework.Input.Handlers;
 namespace osu.Framework.BellaFiora
 {
     [SupportedOSPlatform("windows")]
-    public class FastWindowsGameHost : WindowsGameHost
+    public class CustomWindowsGameHost : WindowsGameHost
     {
-        public FastWindowsGameHost(string gameName, HostOptions hostOptions) : base(gameName, hostOptions) { }
+        public CustomWindowsGameHost(string gameName, HostOptions hostOptions) : base(gameName, hostOptions) { }
 
         private readonly bool realtime = true;
         private IFrameBasedClock? customClock;
