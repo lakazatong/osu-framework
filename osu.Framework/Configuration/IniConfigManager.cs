@@ -25,6 +25,26 @@ namespace osu.Framework.Configuration
         protected virtual string Filename => @"game.ini";
 
         private readonly Storage storage;
+        public bool Load(string config)
+        {
+            if (string.IsNullOrEmpty(Filename)) return false;
+
+            try
+            {
+                using (var stream = storage.CreateFileSafely(Filename))
+                using (var w = new StreamWriter(stream))
+                {
+                    w.Write(config);
+                }
+                PerformLoad();
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
 
         public IniConfigManager(Storage storage, IDictionary<TLookup, object> defaultOverrides = null)
             : base(defaultOverrides)
