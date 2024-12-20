@@ -24,7 +24,8 @@ namespace osu.Framework
                     return Globals.USE_CUSTOM_GAME_HOST ? new CustomWindowsGameHost(gameName, hostOptions) : new WindowsGameHost(gameName, hostOptions);
 
                 case RuntimeInfo.Platform.Linux:
-                    return new LinuxGameHost(gameName, hostOptions);
+                Debug.Assert(OperatingSystem.IsLinux());
+                    return Globals.USE_CUSTOM_GAME_HOST ? new CustomLinuxGameHost(gameName, hostOptions) : new LinuxGameHost(gameName, hostOptions);
 
                 case RuntimeInfo.Platform.macOS:
                     return new MacOSGameHost(gameName, hostOptions);

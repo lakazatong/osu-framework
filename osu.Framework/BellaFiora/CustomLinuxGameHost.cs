@@ -1,7 +1,6 @@
 #pragma warning disable IDE0073
 
 using System.Runtime.Versioning;
-using osu.Framework.Platform.Windows;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -11,13 +10,14 @@ using osu.Framework.Threading;
 using osu.Framework.Timing;
 using System;
 using osu.Framework.Input.Handlers;
+using osu.Framework.Platform.Linux;
 
 namespace osu.Framework.BellaFiora
 {
-    [SupportedOSPlatform("windows")]
-    public class CustomWindowsGameHost : WindowsGameHost
+    [SupportedOSPlatform("linux")]
+    public class CustomLinuxGameHost : LinuxGameHost
     {
-        public CustomWindowsGameHost(string gameName, HostOptions hostOptions) : base(gameName, hostOptions) { }
+        public CustomLinuxGameHost(string gameName, HostOptions hostOptions) : base(gameName, hostOptions) { }
 
         private IFrameBasedClock? customClock;
 
