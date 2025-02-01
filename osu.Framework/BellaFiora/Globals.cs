@@ -13,7 +13,7 @@ namespace osu.Framework.BellaFiora
         public static readonly bool MUTE_MUSIC = false;
         public static readonly bool MUTE_EFFECTS = false;
         public static readonly uint MUSIC_PLAYBACK_RATE = 1;
-        public static readonly double DRAW_THREADS_HZ = 60f * MUSIC_PLAYBACK_RATE;
+        public static readonly double DRAW_THREADS_HZ = UPDATE_THREADS_HZ * MUSIC_PLAYBACK_RATE;
         public static readonly bool THROW_IF_CANCELLED = false;
     }
 }
